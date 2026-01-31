@@ -4,6 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.db import connect_db, close_db
 from app.utils.config import settings
 
+from app.routes import router as api_router
+
 app = FastAPI(
     title="Skill Gap Intelligence",
     version="0.1.0",
@@ -26,10 +28,12 @@ def startup_event():
 def shutdown_event():
     close_db()
 
-@app.get("/")
+@app.get("/health-check")
 def health_check():
     return {
         "status": "ok",
         "service": "Skill Gap Intelligence API",
         "environment": settings.ENV,
     }
+
+app.include_router(api_router, prefix="/api")
