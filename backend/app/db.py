@@ -9,13 +9,13 @@ def connect_db():
     global client, db
 
     if not settings.MONGO_URI:
-        print("⚠️ MONGO_URI not set. Skipping MongoDB connection.")
+        print("MONGO_URI not set. Skipping MongoDB connection.")
         return
 
     client = MongoClient(settings.MONGO_URI)
-    db = client.get_database()
+    db = client[settings.DB_NAME]
 
-    print("✅ MongoDB connected")
+    print("MongoDB connected")
 
 
 def close_db():
@@ -23,4 +23,4 @@ def close_db():
 
     if client:
         client.close()
-        print("🔌 MongoDB connection closed")
+        print("MongoDB connection closed")
