@@ -10,7 +10,7 @@ made a batch script file
     To run 
     uvicorn backend.app.main:app --reload
     # main:app here main is file name and app is instance inside it 
-
+```
 skill-gap-intelligence/         # Root project folder
 │
 ├── backend/                    # All backend code
@@ -50,6 +50,6 @@ skill-gap-intelligence/         # Root project folder
 ├── .gitignore                 # Ignore venv, pycache, env, etc.
 ├── README.md                  # Project overview & instructions
 └── .env                       # Environment variables (MongoDB URI, etc.)
-
+```
 
 Redis, Doc and Pdf support, email incorporate, kafka if needed
